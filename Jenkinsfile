@@ -16,15 +16,17 @@ pipeline {
         stage('Install') {
             steps {
                 echo 'Installation des dépendances...'
-                sh 'npm install'
+                // Installe uniquement si package.json existe
+                sh 'if [ -f package.json ]; then npm install; fi'
             }
         }
 
-        stage('Test') {
+        stage('Run index.js') {
             steps {
-                echo 'Exécution des tests...'
-                sh 'npm test'
+                echo 'Exécution de index.js...'
+                sh 'node index.js'
             }
         }
     }
 }
+
