@@ -1,2 +1,2 @@
 console.log("Hello, le site fonctionne !");
-console.log("GEDEON lol  MAKENGO");
+console.log("GEDEON lol bobo  MAKENGO");
