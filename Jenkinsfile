@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs 'NodeJS' // Nom configuré dans Jenkins
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -8,12 +12,14 @@ pipeline {
                 checkout scm
             }
         }
+
         stage('Install') {
             steps {
                 echo 'Installation des dépendances...'
                 sh 'npm install'
             }
         }
+
         stage('Test') {
             steps {
                 echo 'Exécution des tests...'
